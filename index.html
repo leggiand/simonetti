@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Scuola</title>
+
+</head>
+<body>
+<style id="stt">
+  #area{
+	color:"#FFFFFF"
+  }
+</style>
+<h1>Tag Tester</h1>
+<textarea id="ht" font-family="georgian">&lta&gttest&lta&gt</textarea>
+<textarea id="st" font-family="georgian">a{font-size:20pt}</textarea><br>
+<button onclick="load()">load</button>
+<input id="txtRange1" type="range" min="0" max="100" value="10">
+<input id="txtRange2" type="range" min="0" max="100" value="10">
+<input id="txtRange3" type="range" min="0" max="1000" value="10">
+<h2>Tag area</h2>
+<div style="border:solid" id="area"></div>
+<script defer>
+var slider1 = document.getElementById("txtRange1")
+var slider2 = document.getElementById("txtRange2")
+var slider3 = document.getElementById("txtRange3")
+var ht=  document.getElementById("ht")
+var st=  document.getElementById("st")
+slider1.oninput = function(){
+	ht.style.fontWeight = slider1.value*100
+	st.style.fontWeight = slider1.value*100
+
+}
+slider2.oninput = function(){
+	ht.style.fontSize = slider2.value+"pt"	
+	st.style.fontSize = slider2.value+"pt"
+
+}
+slider3.oninput = function(){
+	ht.style.color = "#"+(Math.round(0xFFFFFF*(slider3.value/1000))).toString(16).padStart(6)	
+	st.style.color = "#"+(Math.round(0xFFFFFF*(slider3.value/1000))).toString(16).padStart(6)
+
+}
+function load(){
+var ht=  document.getElementById("ht")
+var area=  document.getElementById("area")
+var st=  document.getElementById("st")
+var rst=  document.getElementById("stt")
+area.innerHTML=ht.value
+ rst.innerHTML="#area {"+(st.value)+"}"
+
+}
+</script>
+</body>
+</html>
