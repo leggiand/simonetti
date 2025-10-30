@@ -4,7 +4,7 @@
 <title>Scuola</title>
 
 </head>
-<body>
+<body id="bd">
 <style id="stt">
   #area{
 	color:"#FFFFFF"
@@ -14,7 +14,7 @@
 <textarea id="ht" font-family="georgian">&lta&gttest&lta&gt</textarea>
 <textarea id="st" font-family="georgian">a{font-size:20pt}</textarea><br>
 <button onclick="load()">load</button>
-<input id="txtRange1" type="range" min="0" max="100" value="10">
+<input id="txtRange1" type="range" min="0" max="1000" value="10">
 <input id="txtRange2" type="range" min="0" max="100" value="10">
 <input id="txtRange3" type="range" min="0" max="1000" value="10">
 <h2>Tag area</h2>
@@ -25,10 +25,9 @@ var slider2 = document.getElementById("txtRange2")
 var slider3 = document.getElementById("txtRange3")
 var ht=  document.getElementById("ht")
 var st=  document.getElementById("st")
+var bd= document.getElementById("bd")
 slider1.oninput = function(){
-	ht.style.fontWeight = slider1.value*100
-	st.style.fontWeight = slider1.value*100
-
+	        bd.style.backgroundColor = "#"+(Math.round(0xFFFFFF*(slider1.value/1000))).toString(16).padStart(6)
 }
 slider2.oninput = function(){
 	ht.style.fontSize = slider2.value+"pt"	
